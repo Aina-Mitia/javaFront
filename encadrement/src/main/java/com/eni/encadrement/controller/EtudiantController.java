@@ -49,7 +49,7 @@ public class EtudiantController {
 //        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 //    }
     
-    @PostMapping
+    @PostMapping("/post")
     public ResponseEntity<Etudiant> createEtudiant(@RequestBody Etudiant etudiant) {
         Etudiant createdEtudiant = etudiantRepository.save(etudiant);
         return new ResponseEntity<>(createdEtudiant,HttpStatus.CREATED);
@@ -58,8 +58,10 @@ public class EtudiantController {
     @PutMapping("/{id}")
     public ResponseEntity<Etudiant> updateEtudiant(@PathVariable String id, @RequestBody Etudiant etudiantDetails) {
         Optional<Etudiant> etudiantUpdated = etudiantRepository.findById(id);
+        System.out.println(id);
         if(etudiantUpdated.isPresent()) {
             Etudiant etudiantExisting = etudiantUpdated.get();
+            etudiantExisting.setMatricule(etudiantDetails.getMatricule());
             etudiantExisting.setNom(etudiantDetails.getNom());
             etudiantExisting.setPrenom(etudiantDetails.getPrenom());
             etudiantExisting.setNiveau(etudiantDetails.getNiveau());

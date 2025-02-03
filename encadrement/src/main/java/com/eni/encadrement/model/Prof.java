@@ -57,10 +57,5 @@ public class Prof {
         this.grade = parcours;
     }
 
-    /*@OneToOne(mappedBy = "prof")
-    private Etudiant etudiant;
 
-    @ManyToOne
-    @JoinColumn(name = "matricule")
-    private Etudiant etud;*/
 }

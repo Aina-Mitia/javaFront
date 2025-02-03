@@ -60,11 +60,6 @@ public class Etudiant {
 		this.parcours = parcours;
 	}
 
-	/*@OneToOne
-	@JoinColumn(name = "IDProf")
-	private Prof prof;
 
-	@OneToMany(mappedBy = "etud")
-	private List<Prof> profs;*/
 	
 }
